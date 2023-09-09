@@ -1,11 +1,15 @@
 import React from 'react'
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import Login from './Pages/Login';
 
 const App = () => {
   return (
     <>
-      <div className=' font-semibold text-4xl text-blue-900 flex justify-center h-[100vh] items-center '>
-        404 Not Yet Implemented
-      </div> 
+      <BrowserRouter >
+        <Routes>
+          <Route path="/" element={<Login />} /> 
+        </Routes>
+      </BrowserRouter >
     </>
   )
 }
