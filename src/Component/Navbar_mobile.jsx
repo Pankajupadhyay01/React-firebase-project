@@ -18,11 +18,11 @@ const Navbar_mobile = () => {
         {
 
           user ?
-            <Link to={"/login"} className='flex justify-center items-center bg-mustard p-[10px_10px] rounded-full text-[28px] font-bold text-blue-900'>
+            <Link to={"/"} className='flex justify-center items-center bg-mustard p-[10px_10px] rounded-full text-[28px] font-bold text-blue-900'>
               <ion-icon name="person-circle-outline"></ion-icon>
             </Link>
             :
-            <Link to={"/"} className='flex justify-center items-center bg-mustard p-[10px_10px] rounded-full text-[28px] font-bold text-blue-900'>
+            <Link to={"/login"} className='flex justify-center items-center bg-mustard p-[10px_10px] rounded-full text-[28px] font-bold text-blue-900'>
               <ion-icon name="log-in-outline"></ion-icon>
             </Link>
         }

@@ -5,13 +5,13 @@ const Navbar_desktop = () => {
     const [user, setuser] = useState(false)
     return (
         <div>
-            <nav className='bg-white hidden md:flex w-full'>
+            <nav className='bg-cyan hidden md:flex w-full fixed z-[999]'>
                 <div className='flex w-full justify-between mx-[20px] items-center p-[10px_20px]'>
-                    <div>PacTech</div>
+                    <div className='text-[28px] text-blue-900 font-semibold drop-shadow-[0_0_10px_black]'>PacTech</div>
                     <ul className='flex gap-x-4 justify-center items-center'>
                         {
                             Desktopnav.map((pro, i) => (
-                                <Link key={i} to={pro.Link} className=' hover:text-blue-900'>{pro.name}</Link>
+                                <Link key={i} to={pro.Link} className=' hover:text-blue-900 text-[18px]'>{pro.name}</Link>
                             ))
                         }
 
