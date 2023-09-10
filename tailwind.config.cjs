@@ -16,7 +16,7 @@ module.exports = {
       },
 
       keyframes: {
-        test: {
+        Bounce: {
           '100%': { transform: ' translateY(10px); ' }
         },
         bganimate: {

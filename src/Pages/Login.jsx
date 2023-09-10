@@ -53,7 +53,7 @@ const Login = () => {
 
                 {/* Right Section */}
 
-                <div className='md:flex flex-col justify-center items-center w-[45%] flex-2 animate-[test_2s_infinite_ease_alternate] hidden'>
+                <div className='md:flex flex-col justify-center items-center w-[45%] flex-2 animate-[Bounce_2s_infinite_ease_alternate] hidden'>
                   <img className='w-full ' src={Logimg} alt="" srcset={Logimg} />
 
                   {/* Signup page link */}
