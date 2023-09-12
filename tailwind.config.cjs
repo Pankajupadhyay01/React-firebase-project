@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         Hero: 'linear-gradient(to right top, #c6f3ea, #c4f8df, #ccfbcf, #ddfbbc, #f5f9aa)',
-        main: 'linear-gradient(to left bottom, #001738, #121b4b, #2d1c5a, #4b1766, #6a036c)'
+        main: 'linear-gradient(to left bottom, #001738, #121b4b, #2d1c5a, #4b1766, #6a036c)', 
       },
       colors: {
         mustard: "#fdcc0d",
