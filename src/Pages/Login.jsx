@@ -63,7 +63,7 @@ const Login = () => {
 
                   {/* Signup page link For mobile */}
                   <div className='text-white md:hidden'>
-                    Don't Have Account ? <button className='text-blue-300 ' onClick={() => Form == "Sign In" ? setForm("Sign Up") : setForm("Sign In")}>{Form}</button>
+                    Do You Want to ? <button className='text-blue-300 ' onClick={() => func()}>{Form == "Sign In" ? "Sign Up" : "Sign In"}</button>
                   </div>
                 </div>
 
@@ -74,7 +74,7 @@ const Login = () => {
 
                   {/* Signup page link for desktop */}
                   <div className='text-white'>
-                    Don't Have Account ? <button className='text-blue-300' onClick={() => func()}>{Form}</button>
+                    Do You Want to  ? <button className='text-blue-300' onClick={() => func()}>{Form == "Sign In" ? "Sign Up" : "Sign In"}</button>
                   </div>
                 </div>
 
