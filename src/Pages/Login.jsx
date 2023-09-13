@@ -4,6 +4,8 @@ import Logimg from '/assets/login.png'
 import FormsLoader from '../Component/Loaders/FormsLoader';
 const Login = () => {
   const [loading, setloading] = useState(true);
+  const [Form, setForm] = useState("Sign In");
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -11,6 +13,13 @@ const Login = () => {
     }, 3500);
   }, [])
 
+  const func = () => {
+    if (Form == "Sign In") {
+      setForm("Sign Up")
+    } else {
+      setForm("Sign In")
+    }
+  }
 
   return (
     <>
@@ -23,7 +32,7 @@ const Login = () => {
             <div className='bg-white bg-opacity-20 border-1 w-[90%] lg:w-[70%] py-[40px] m-auto'>
               {/* heading */}
               <h1 className='flex justify-center text-[42px] text-mustard mb-5'>
-                Sign In
+                {Form}
               </h1>
               <div className='flex md:flex-row w-full flex-col m-auto justify-between items-center'>
 
@@ -34,9 +43,16 @@ const Login = () => {
                   {/* form */}
 
                   <form action="" className='flex flex-col gap-4  justify-center items-center'>
-                    <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+                    <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Name' />
+                    {
+                      Form == "Sign Up" ?
+
+                        <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+
+                        : <></>
+                    }
                     <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Password' />
-                    <button className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Login</button>
+                    <button className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>{Form}</button>
                   </form>
 
                   {/* login with options  */}
@@ -45,20 +61,20 @@ const Login = () => {
                     <div className='cursor-pointer '>Github</div>
                   </div>
 
-                  {/* Signup page link */}
+                  {/* Signup page link For mobile */}
                   <div className='text-white md:hidden'>
-                    Don't Have Account ? <Link className='text-blue-300 ' to={"/"}>Sign up</Link>
+                    Don't Have Account ? <button className='text-blue-300 ' onClick={() => Form == "Sign In" ? setForm("Sign Up") : setForm("Sign In")}>{Form}</button>
                   </div>
                 </div>
 
                 {/* Right Section */}
 
                 <div className='md:flex flex-col justify-center items-center w-[45%] flex-2 animate-[Bounce_2s_infinite_ease_alternate] hidden'>
-                  <img className='w-full ' src={Logimg} alt="" srcset={Logimg} />
+                  <img className='w-full ' src={Logimg} alt="" srcSet={Logimg} />
 
-                  {/* Signup page link */}
+                  {/* Signup page link for desktop */}
                   <div className='text-white'>
-                    Don't Have Account ? <Link className='text-blue-300 ' to={"/"}>Sign up</Link>
+                    Don't Have Account ? <button className='text-blue-300' onClick={() => func()}>{Form}</button>
                   </div>
                 </div>
 

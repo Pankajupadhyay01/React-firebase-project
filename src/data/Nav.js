@@ -38,27 +38,22 @@ export const Mobilenav = [
 export const Herodata = [
     {
         image: "document-text-outline",
-        name: " Create an resume",
+        name: " Create resume",
         Link: "/"
     },
     {
         image: "help-outline",
-        name: " Ask a Question",
+        name: " Ask Question",
         Link: "/"
     },
     {
         image: "chatbubble-ellipses-outline",
-        name: "Answer an Question",
+        name: "Solve Question",
         Link: "/"
     },
     {
         image: "telescope-outline",
-        name: "Check Opening's",
+        name: "Get Hire",
         Link: "/"
     },
-    {
-        image: "logo-bitcoin",
-        name: "Coin Market",
-        Link: "/"
-    }
 ] 

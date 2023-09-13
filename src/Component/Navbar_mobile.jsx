@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Navbar_mobile = () => {
   const [user, setuser] = useState(false)
   return (
-    <div className='fixed bottom-0 w-full md:hidden flex justify-center items-center mb-1'>
+    <div className='fixed bottom-0 w-full md:hidden flex justify-center items-center mb-1 z-[999]'>
       <div className='flex justify-center w-[95%] items-center gap-x-5  bg-white rounded-xl p-[10px_10px]'>
         {
           Mobilenav.map((pro, i) => (
