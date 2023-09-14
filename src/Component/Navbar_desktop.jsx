@@ -5,7 +5,7 @@ const Navbar_desktop = () => {
     const [user, setuser] = useState(false)
     return (
         <div>
-            <nav className='bg-cyan hidden md:flex w-full fixed z-[999]'>
+            <nav className='bg-white hidden md:flex w-full fixed h-[50px]  z-[999]'>
                 <div className='flex w-full justify-between mx-[20px] items-center p-[10px_20px]'>
                     <div className='text-[28px] text-blue-900 font-semibold drop-shadow-[0_0_5px_mustard]'>PacTech</div>
                     <ul className='flex gap-x-4 justify-center items-center'>

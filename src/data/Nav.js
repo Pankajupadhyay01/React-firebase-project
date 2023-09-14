@@ -39,7 +39,7 @@ export const Herodata = [
     {
         image: "document-text-outline",
         name: " Create resume",
-        Link: "/"
+        Link: "/resume"
     },
     {
         image: "help-outline",
