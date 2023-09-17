@@ -20,6 +20,7 @@ const Hero = () => {
                 </div>
             </div>
 
+            {/* Hero Section for mobile */}
             <Hero_mobile />
         </>
     )

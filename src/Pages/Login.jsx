@@ -47,7 +47,7 @@ const Login = () => {
                     {
                       Form == "Sign Up" ?
 
-                        <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+                        <input type="mail" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
 
                         : <></>
                     }

@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { Desktopnav } from '../data/Nav'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const Navbar_desktop = () => {
-    const [user, setuser] = useState(false)
+    // checking wether user is login or not
+    const isuser = useSelector((state) => state.user.user)
+
     return (
         <div>
-            <nav className='bg-white hidden md:flex w-full fixed h-[50px]  z-[999]'>
+            <nav className='bg-white hidden md:flex w-full fixed h-[50px] z-[999]'>
                 <div className='flex w-full justify-between mx-[20px] items-center p-[10px_20px]'>
                     <div className='text-[28px] text-blue-900 font-semibold drop-shadow-[0_0_5px_mustard]'>PacTech</div>
                     <ul className='flex gap-x-4 justify-center items-center'>
@@ -16,7 +19,7 @@ const Navbar_desktop = () => {
                         }
 
                         {
-                            user ?
+                            isuser ?
                                 <div className='bg-main text-white p-[5px_20px] rounded-xl'>Log out </div>
                                 :
                                 <Link to={"/login"} className='bg-mustard p-[5px_20px] rounded-xl'>Sign in</Link>
