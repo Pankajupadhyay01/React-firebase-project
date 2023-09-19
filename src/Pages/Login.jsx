@@ -1,50 +1,76 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import Logimg from '/assets/login.png'
 import FormsLoader from '../Component/Loaders/FormsLoader';
-/*import { app } from "./firebase";
-
-import { getAuth ,  createUserWithEmailAndPassword } from "firebase/auth";
-import "./App.css";
-
-const auth = getAuth(app);
-
-function App() {
-  const signupUser = () =>{
-      createUserWithEmailAndPassword( auth , " niyati@gmail.com " , " Niyati@123 ").then (value => console.log(value));
-  };
-}*/
-import "../App"
-import { auth } from '../firebase';
-
-const signupUser = () => {
-  const[name, setName ] = useState("");
-  const[ email, setEmail] = useState("");
-  const[ password, setPassword] = useState("");
-
-
-  const createUser = () => {
-  createUserWithEmailAndPassword( auth, email,password,name);
-  };
-};
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [loading, setloading] = useState(true);
   const [Form, setForm] = useState("Sign In");
+  const navigate = useNavigate()
+  // form user input state 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  // const error state for firebase 
+  const [err, seterr] = useState("")
 
+  // Loading animation time  
   useEffect(() => {
     setTimeout(() => {
       setloading(false)
     }, 3500);
   }, [])
 
+  // form toogle method
   const func = () => {
+    setEmail("");
+    setName("");
+    setPassword("")
     if (Form == "Sign In") {
       setForm("Sign Up")
     } else {
       setForm("Sign In")
     }
+  }
+
+  // submit button for Sign up
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        seterr(false)
+        const user = userCredential.user;
+        alert("Hey Programmer... Your Accoun created sucessfully")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        seterr(error.code)
+      });
+  }
+
+  // sign in button 
+
+  const hanleLogin = (e) => {
+    e.preventDefault()
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        seterr(false)
+        const user = userCredential.user;
+        navigate("/")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        seterr(error.code)
+
+      });
   }
 
   return (
@@ -69,22 +95,25 @@ const Login = () => {
                   {/* form */}
 
                   <form action="" className='flex flex-col gap-4  justify-center items-center'>
-                    <input onChange={e => setEmail(e.target.value)}value ={Name} type="name" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Name' />
+                    <input value={email} type="email" onChange={e => setEmail(e.target.value)} className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
                     {
                       Form == "Sign Up" ?
 
-<<<<<<< HEAD
-                        <input onChange={e => setEmail(e.target.value)}value ={email} type="email" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
-=======
-                        <input type="mail" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
->>>>>>> 84379811599db126f489413f0216bc02d2993b76
-
+                        <input onChange={e => setName(e.target.value)} value={name} type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Name' />
                         : <></>
                     }
-                    <input onChange={e => setEmail(e.target.value)}value ={password} type="password" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Password' />
-                    <button className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>{Form}</button>
-                  </form>
 
+                    <input onChange={e => setPassword(e.target.value)} value={password} type="password" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Password' />
+
+                    {
+                      Form == "Sign Up" ?
+                        <button onClick={handleSubmit} className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Sign up</button>
+                        :
+                        <button onClick={hanleLogin} className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Sign in</button>
+                    }
+
+                  </form>
+                  {err ? <div> {err} </div> : ""}
                   {/* login with options  */}
                   <div className='flex gap-x-3'>
                     <div className='cursor-pointer ' >Google</div>

@@ -11,7 +11,8 @@ export const contact = [
     },
     {
         // image: "chatbubble-ellipses-outline",
-        name: "Mail",
+        name: "Our Mail",
         detail: "mail@mail.Com"
-    }
+    },
+    
 ] 
