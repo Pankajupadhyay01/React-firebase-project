@@ -73,7 +73,11 @@ const Login = () => {
                     {
                       Form == "Sign Up" ?
 
+<<<<<<< HEAD
                         <input onChange={e => setEmail(e.target.value)}value ={email} type="email" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+=======
+                        <input type="mail" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+>>>>>>> 84379811599db126f489413f0216bc02d2993b76
 
                         : <></>
                     }
