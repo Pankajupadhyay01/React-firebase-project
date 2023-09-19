@@ -94,14 +94,16 @@ const Resume_template = () => {
 
             {/* download Button  */}
             <div className='flex justify-center my-[20px]'>
+
                 <ReactToPrint
                     trigger={() => {
 
-                        return <button className='bg-mustard p-[10px_10px] rounded-lg text-white hover:shadow-[10px_10px_10px_cyan] hover:translate-y-[-2px] hover:ease-in-out'>Download Resume</button>
+                        return <button className='bg-mustard p-[10px_10px] rounded-lg text-white hover:shadow-[10px_10px_10px_cyan] hover:translate-y-[-2px] hover:ease-in-out'>Print Resume</button>
 
                     }}
                     content={() => Resuref.current}
                 />
+
             </div>
         </div>
     )
