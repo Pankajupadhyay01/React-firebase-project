@@ -43,7 +43,7 @@ const Login = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        seterr(false)
+        seterr("")
         const user = userCredential.user;
         alert("Hey Programmer... Your Accoun created sucessfully")
       })
@@ -61,7 +61,7 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        seterr(false)
+        seterr("")
         const user = userCredential.user;
         navigate("/")
       })
@@ -69,7 +69,6 @@ const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         seterr(error.code)
-
       });
   }
 
@@ -95,7 +94,7 @@ const Login = () => {
                   {/* form */}
 
                   <form action="" className='flex flex-col gap-4  justify-center items-center'>
-                    <input value={email} type="email" onChange={e => setEmail(e.target.value)} className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+                    <input value={email} type="email" onChange={e => {setEmail(e.target.value); seterr("")}} className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
                     {
                       Form == "Sign Up" ?
 
@@ -113,7 +112,9 @@ const Login = () => {
                     }
 
                   </form>
+
                   {err ? <div> {err} </div> : ""}
+
                   {/* login with options  */}
                   <div className='flex gap-x-3'>
                     <div className='cursor-pointer ' >Google</div>
