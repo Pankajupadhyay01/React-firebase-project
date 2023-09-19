@@ -2,6 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logimg from '/assets/login.png'
 import FormsLoader from '../Component/Loaders/FormsLoader';
+/*import { app } from "./firebase";
+
+import { getAuth ,  createUserWithEmailAndPassword } from "firebase/auth";
+import "./App.css";
+
+const auth = getAuth(app);
+
+function App() {
+  const signupUser = () =>{
+      createUserWithEmailAndPassword( auth , " niyati@gmail.com " , " Niyati@123 ").then (value => console.log(value));
+  };
+}*/
+import { app } from "./App"
+
 const Login = () => {
   const [loading, setloading] = useState(true);
   const [Form, setForm] = useState("Sign In");
