@@ -14,7 +14,19 @@ function App() {
       createUserWithEmailAndPassword( auth , " niyati@gmail.com " , " Niyati@123 ").then (value => console.log(value));
   };
 }*/
-import { app } from "./App"
+import "../App"
+import { auth } from '../firebase';
+
+const signupUser = () => {
+  const[name, setName ] = useState("");
+  const[ email, setEmail] = useState("");
+  const[ password, setPassword] = useState("");
+
+
+  const createUser = () => {
+  createUserWithEmailAndPassword( auth, email,password,name);
+  };
+};
 
 const Login = () => {
   const [loading, setloading] = useState(true);
@@ -57,15 +69,15 @@ const Login = () => {
                   {/* form */}
 
                   <form action="" className='flex flex-col gap-4  justify-center items-center'>
-                    <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Name' />
+                    <input onChange={e => setEmail(e.target.value)}value ={Name} type="name" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Name' />
                     {
                       Form == "Sign Up" ?
 
-                        <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+                        <input onChange={e => setEmail(e.target.value)}value ={email} type="email" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
 
                         : <></>
                     }
-                    <input type="text" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Password' />
+                    <input onChange={e => setEmail(e.target.value)}value ={password} type="password" className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Password' />
                     <button className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>{Form}</button>
                   </form>
 
