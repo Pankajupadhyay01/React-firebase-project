@@ -1,59 +1,33 @@
-import React from "react";
-
+import React from 'react'
+import Heading from '../Cards/Heading'
+import { contact } from '../../data/contact'
 const Contact = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md max-w-md w-full">
-        <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-        <form>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-              Name
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="name"
-              type="text"
-              placeholder="Your Name"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              type="email"
-              placeholder="Your Email"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
-              Message
-            </label>
-            <textarea
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="message"
-              rows="4"
-              placeholder="Your Message"
-            ></textarea>
-          </div>
-          <div className="flex items-center justify-between">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Send
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
+    return (
+        <>
+            <Heading value="Contact Us" />
+            <div className='flex sm:flex-row flex-col w-[90%] m-auto justify-between items-center my-5'>
+                <div className='hidden sm:flex sm:flex-col gap-3 flex-1 justify-center items-center border-r-2 border-gray-500'>
+                    {
+                        contact.map((pro, i) => (
+                            <div key={i} className='flex flex-col items-center'>
+                                <div className=''>icon</div>
+                                <div className='text-[24px] font-semibold text-blue-950'>{pro.name}</div>
+                                <div className='text-pink-900'>{pro.detail}</div>
+                            </div>
+                        ))
+                    }
+                </div>
 
-export default Contact;
-
-
+                <div className='flex md:flex-col gap-3 flex-1 justify-center items-center'>
+                    <form action="" className='flex flex-col gap-4  justify-center items-center'>
+                        <input type="name" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Name' />
+                        <input type="email" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Email' />
+                        <textarea rows={5} type="text" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Message..' />
+                        <button className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Submit</button>
+                    </form>
+                </div>
+            </div>
+        </>
+    )
+}
 
