@@ -16,14 +16,14 @@ const Resume_form = () => {
     ]
     return (
         <div>
-            {/* <form action="" className='flex w-[]'>
+            <form action="" className='flex w-[]'>
                 {
                     form.map((pro, i) => (
                         <input key={i} type="text" placeholder={pro.name} />
                     ))
                 }
                 <button>save</button>
-            </form> */}
+            </form>
 
             {/* Template */}
             <Resume_template />
