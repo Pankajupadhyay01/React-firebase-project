@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom'
 const Smallcard = ({ ...pro }) => {
     return (
         < >
-
-
-
             <div className='flex flex-col justify-center items-center w-[calc(50%-10px)] md:w-[calc(25%-15px)] bg-[#dfffce] md:p-[10px_10px] rounded-lg gap-2'>
                 <div className='text-blue-500 text-[20px]'>
                     <ion-icon name={pro.image}></ion-icon>
