@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { Desktopnav } from '../data/Nav'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { Logout } from '../Redux/userSlice'
 const Navbar_desktop = () => {
     // checking wether user is login or not
     const isuser = useSelector((state) => state.user.user)
-
+    const dispatch = useDispatch()
+    const logout = ()=>{
+        dispatch(Logout())
+    }
     return (
         <div>
             <nav className='bg-white hidden md:flex w-full fixed h-[50px] z-[999]'>
@@ -20,7 +24,7 @@ const Navbar_desktop = () => {
 
                         {
                             isuser ?
-                                <div className='bg-main text-white p-[5px_20px] rounded-xl'>Log out </div>
+                                <div onClick={logout} className='bg-main text-white p-[5px_20px] rounded-xl cursor-pointer'>Log out </div>
                                 :
                                 <Link to={"/login"} className='bg-mustard p-[5px_20px] rounded-xl'>Sign in</Link>
                         }

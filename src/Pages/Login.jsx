@@ -6,11 +6,27 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { auth } from '../firebase';
 
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { checkUser } from '../Redux/userSlice';
 
 
 
 const Login = () => {
+
+  // Loading animation time  
+
   const [loading, setloading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setloading(false)
+    }, 3500);
+  }, [])
+
+  // Loading animation end
+
+
+  const dispatch = useDispatch()
+
   const [Form, setForm] = useState("Sign In");
   const navigate = useNavigate()
   // form user input state 
@@ -21,12 +37,6 @@ const Login = () => {
   // const error state for firebase 
   const [err, seterr] = useState("")
 
-  // Loading animation time  
-  useEffect(() => {
-    setTimeout(() => {
-      setloading(false)
-    }, 3500);
-  }, [])
 
   // form toogle method
   const func = () => {
@@ -67,6 +77,7 @@ const Login = () => {
       .then((userCredential) => {
         seterr("")
         const user = userCredential.user;
+        dispatch(checkUser())
         navigate("/")
       })
       .catch((error) => {
@@ -98,7 +109,7 @@ const Login = () => {
                   {/* form */}
 
                   <form action="" className='flex flex-col gap-4  justify-center items-center'>
-                    <input value={email} type="email" onChange={e => {setEmail(e.target.value); seterr("")}} className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
+                    <input value={email} type="email" onChange={e => { setEmail(e.target.value); seterr("") }} className=' bg-transparent border-2 p-[5px_10px] text-center outline-none text-white w-[280px] rounded-lg ' placeholder='Enter Your Email' />
                     {
                       Form == "Sign Up" ?
 

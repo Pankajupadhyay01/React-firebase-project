@@ -1,9 +1,10 @@
 import React from 'react'
+import { Wrok_Education } from './Wrok_Education'
+import Project_lang from './Project_lang'
 
 const Right_resume = () => {
     return (
-        <div className='flex w-full'>
-            {/* Education */}
+        <div className='flex w-full flex-col gap-[20px]'>
             <div className='flex justify-start  flex-col gap-3'>
                 <h1 className=' font-semibold text-blue-900 text-2xl'>
                     SKILLS
@@ -36,7 +37,37 @@ const Right_resume = () => {
 
                 {/* Skill section ended  */}
 
+
             </div>
+
+
+            {/* achievement */}
+            <div className='flex justify-start  flex-col gap-3'>
+                <h1 className=' font-semibold text-blue-900 text-2xl'>
+                    Achievement
+                </h1>
+                <Wrok_Education course="Front end developer" col="Ezyschooling" date="07/2021 - Present" />
+
+            </div>
+
+            {/* Language  */}
+            <div className='flex justify-start  flex-col gap-3'>
+                <h1 className=' font-semibold text-blue-900 text-2xl'>
+                    Languages
+                </h1>
+                <Project_lang />
+            </div>
+
+            {/* Social Link  */}
+            <div className='flex justify-start  flex-col gap-3'>
+                <h1 className=' font-semibold text-blue-900 text-2xl'>
+                    Social Link
+                </h1>
+                <div className=''>
+                    GitHub
+                </div>
+            </div>
+
         </div>
     )
 }

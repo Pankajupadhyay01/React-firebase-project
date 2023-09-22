@@ -1,6 +1,7 @@
 import React from 'react'
 import heroimg from '/assets/hero.png'
 import Smallcard from '../Cards/Smallcard'
+import { Herodata } from '../../data/Nav'
 
 const Hero_mobile = () => {
     return (
@@ -25,7 +26,15 @@ const Hero_mobile = () => {
                         </div>
                     </div>
 
-                    <Smallcard />
+                    <div className='w-full flex flex-wrap justify-center gap-4 mb-10 md:mb-0 pb-10'>
+
+                        {
+                            Herodata.map((pro, i) => (
+                                <Smallcard {...pro} />
+                            )
+                            )
+                        }
+                    </div>
                 </div>
 
             </div>
