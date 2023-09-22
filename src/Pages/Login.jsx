@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Logimg from '/assets/login.png'
 import FormsLoader from '../Component/Loaders/FormsLoader';
+
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../firebase'
+import { auth } from '../firebase';
+
 import { useNavigate } from 'react-router-dom';
+
+
 
 const Login = () => {
   const [loading, setloading] = useState(true);

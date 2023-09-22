@@ -1,3 +1,20 @@
+// import { app } from '../firebase';
+// import {  collection, addDoc, getFirestore } from 'firebase/firestore';
+
+// const firestore = getFirestore(app);
+
+// function app(){
+//     const writeData = async() => {
+//         const result = await addDoc(collection(firestore , "cities"),{
+//             name : "delhi" ,
+//             pincode : 231423 ,
+//             latitude : 234 ,
+//             longitude : 876,
+//         });
+//         console.log("Reault" , result);
+//     };
+// }*/
+
 export const contact = [
     {
         // image: "document-text-outline",
