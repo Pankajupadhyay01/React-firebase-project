@@ -7,8 +7,7 @@ const loginSlice = createSlice({
     },
     reducers: {
         isUser: (state,action) => {
-            state.currentUser = action.payload
-        
+            state.currentUser = action.payload        
         }
     }
 })

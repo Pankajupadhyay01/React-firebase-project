@@ -54,6 +54,6 @@ export const Herodata = [
     {
         image: "telescope-outline",
         name: "Get Hire",
-        Link: "/"
+        Link: "/hire"
     },
 ] 

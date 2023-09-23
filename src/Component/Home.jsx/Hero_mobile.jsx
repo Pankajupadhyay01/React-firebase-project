@@ -30,7 +30,7 @@ const Hero_mobile = () => {
 
                         {
                             Herodata.map((pro, i) => (
-                                <Smallcard {...pro} />
+                                <Smallcard key={i} {...pro} />
                             )
                             )
                         }
