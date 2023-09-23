@@ -11,10 +11,10 @@ const Contact = () => {
 
     const writeData = async (e) => {
         e.preventDefault();
-        const result = await addDoc(collection(firestore, "Users"), {
-            Name: "Niyati",
-            Phone: 9876580680,
-            City: "Delhi"
+        const result = await addDoc(collection(firestore, "contacts"), {
+            Email: "pankaj",
+            Name: "uii",
+            message: "Delhi"
         });
         console.log("Result", result);
     }
