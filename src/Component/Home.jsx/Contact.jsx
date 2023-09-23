@@ -8,17 +8,16 @@ import { app } from '../../firebase';
 const firestore = getFirestore()
 const Contact = () => {
 
-}
 
-const writeData = async () => {
-    const result = await addDoc(collection(firestore, "Users"), {
-        Name: "Niyati",
-        Phone: 9876580680,
-        City: "Delhi"
-    });
-    console.log("Result", result);
-
-
+    const writeData = async (e) => {
+        e.preventDefault();
+        const result = await addDoc(collection(firestore, "Users"), {
+            Name: "Niyati",
+            Phone: 9876580680,
+            City: "Delhi"
+        });
+        console.log("Result", result);
+    }
 
     return (
         <>
