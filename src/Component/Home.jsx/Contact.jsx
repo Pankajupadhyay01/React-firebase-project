@@ -1,23 +1,23 @@
 import React from 'react'
 import Heading from '../Cards/Heading'
 import { contact } from '../../data/contact'
-import { getFirestore  , collection , addDoc} from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { app } from '../../firebase';
 
 
 const firestore = getFirestore()
 const Contact = () => {
-     
+
 }
-function app(){
-    const writeData = async() => {
-        const result = await addDoc(collection(firestore, "Users") , {
-            Name : "Niyati" ,
-            Phone : 9876580680,
-            City : "Delhi"
-        });
-        console.log ("Result" , result);
-    };
+
+const writeData = async () => {
+    const result = await addDoc(collection(firestore, "Users"), {
+        Name: "Niyati",
+        Phone: 9876580680,
+        City: "Delhi"
+    });
+    console.log("Result", result);
+
 
 
     return (
