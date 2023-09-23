@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import Navbar from './Component/Navbar';
 import Resume from './Pages/Resume';
 import { useSelector } from 'react-redux';
+import Hire from './Pages/Hire';
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/resume" element={<RequiredAuth> <Resume /> </RequiredAuth>} />
+          <Route path="/hire" element={<RequiredAuth> <Hire /> </RequiredAuth>} />
 
         </Routes>
       </BrowserRouter >

@@ -22,7 +22,6 @@ module.exports = {
         bganimate: {
           '0%': { background: 'white', color: 'black' },
           '50%,100%': { background: 'black', color: 'white' },
-
         }
       }
     },

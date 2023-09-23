@@ -20,3 +20,21 @@ export const Joinus = [
         Link: ""
     }
 ]
+
+export const ourSponsor = [
+    {
+        img: "newspaper-outline",
+        title: "Get Solution ",
+        Link: "/"
+    },
+    {
+        img: "people-outline",
+        title: "Get Teamate",
+        Link: "/"
+    },
+    {
+        img: "logo-bitcoin",
+        title: "Get Points ",
+        Link: ""
+    },
+]
