@@ -1,7 +1,25 @@
 import React from 'react'
 import Heading from '../Cards/Heading'
 import { contact } from '../../data/contact'
+import { getFirestore  , collection , addDoc} from "firebase/firestore";
+import { app } from '../../firebase';
+
+
+const firestore = getFirestore()
 const Contact = () => {
+     
+}
+function app(){
+    const writeData = async() => {
+        const result = await addDoc(collection(firestore, "Users") , {
+            Name : "Niyati" ,
+            Phone : 9876580680,
+            City : "Delhi"
+        });
+        console.log ("Result" , result);
+    };
+
+
     return (
         <>
             <Heading value="Contact Us" />
@@ -23,12 +41,13 @@ const Contact = () => {
                         <input type="name" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Name' />
                         <input type="email" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Email' />
                         <textarea rows={5} type="text" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Message..' />
-                        <button className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Submit</button>
+                        <button onClick={writeData} className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Submit</button>
                     </form>
                 </div>
             </div>
         </>
     )
 }
+
 
 export default Contact
