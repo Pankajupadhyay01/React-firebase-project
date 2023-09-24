@@ -4,7 +4,7 @@ import Seller_list from '../Component/Opportunity/Seller_list'
 
 const Hire = () => {
     return (
-        <div className='pt-[70px] w-[90%] m-auto'>
+        <div className='md:pt-[50px] w-[90%] m-auto'>
             <Secondary_Nav />
             <Seller_list />
         </div>
