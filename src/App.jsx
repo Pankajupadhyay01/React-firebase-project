@@ -6,6 +6,7 @@ import Navbar from './Component/Navbar';
 import Resume from './Pages/Resume';
 import { useSelector } from 'react-redux';
 import Hire from './Pages/Hire';
+import Join_Seller from './Pages/Join_Seller';
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
@@ -24,6 +25,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/resume" element={<RequiredAuth> <Resume /> </RequiredAuth>} />
           <Route path="/hire" element={<RequiredAuth> <Hire /> </RequiredAuth>} />
+          <Route path="/hire/become-a-seller" element={<RequiredAuth> <Join_Seller /> </RequiredAuth>} />
+
 
         </Routes>
       </BrowserRouter >

@@ -3,7 +3,7 @@ import Alnum_card from '../Cards/Alnum_card'
 const Seller_list = () => {
 
     return (
-        <div>
+        <div className='flex flex-wrap'>
             <Alnum_card />
             <Alnum_card />
 
