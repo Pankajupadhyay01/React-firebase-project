@@ -1,27 +1,42 @@
 import React, { useState } from 'react'
 import { input } from '../data/Sellers_input'
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { db } from '../firebase'
+import { auth, db } from '../firebase'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+
+
 const Join_Seller = () => {
     const [seller, setseller] = useState({})
-    const handle = async (e) => {
-        e.preventDefault();
-        await setDoc(doc(db, "seller", "AzQFl4KiXowK6WaNtex0"), {
-            ...seller,
-        });
-    }
 
+    // Collecting data from input field
     const sellerData = (e) => {
         const id = e.target.id;
         const val = e.target.value;
         setseller({ ...seller, [id]: val })
     }
 
+    // Sending data to firestore
+    const handle = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await signInWithEmailAndPassword(auth, seller.email, seller.password);
+            await setDoc(doc(db, "seller", res.user.uid), {
+                ...seller,
+            });
+            alert("Hey user You are sucessfully Become a Seller . if you want to change any detail further you can change here itself.")
+        } catch (error) {
+            alert("Please Enter you Email Password using which you login.")
+        }
+
+    }
+
     return (
         <div className='pt-[50px] w-[90%] flex m-auto justify-around items-center h-[100vh]'>
 
 
-            <div className='w-[50%] flex justify-center items-center'>
+            <div className='w-[50%] flex flex-col gap-4 justify-center items-center'>
+                <label >Please select you image</label>
                 <input type="file" />
 
             </div>

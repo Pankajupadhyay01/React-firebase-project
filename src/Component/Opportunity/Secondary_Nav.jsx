@@ -23,7 +23,7 @@ const Secondary_Nav = () => {
     return (
         <>
 
-            <div className='flex md:w-auto w-full justify-between items-center md:justify-center md:p-[10px_0] p-[8px_10px] md:bg-white bg-blue-500 m-auto'>
+            <div className=' flex md:w-auto w-full justify-between items-center md:justify-center md:p-[10px_0] p-[8px_10px] md:bg-white bg-blue-500 m-auto'>
                 <div className='md:hidden'>
                     LOGO
                 </div>

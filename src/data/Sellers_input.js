@@ -18,6 +18,12 @@ export const input = [
         placeholder: "Enter your email ",
     },
     {
+        id: "password",
+        // label: "Email",
+        type: "password",
+        placeholder: "Enter your password ",
+    },
+    {
         id: "phone",
         // label: "Phone",
         type: "text",
@@ -36,9 +42,9 @@ export const input = [
         placeholder: "Enter you education ",
     }
     // {
-        // id: "expreince",
-        // label: "Expreince",
-        // type: "text",
-        // placeholder: "Enter your skill ",
+    // id: "expreince",
+    // label: "Expreince",
+    // type: "text",
+    // placeholder: "Enter your skill ",
     // },
 ]
