@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import Heading from '../Cards/Heading'
 import { contact } from '../../data/contact'
 import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { app } from '../../firebase';
-import { db } from '../../firebase';
-
-
-
 const firestore = getFirestore()
+
+
 const Contact = () => {
     const [data, setdata] = useState({})
 
@@ -24,7 +21,6 @@ const Contact = () => {
                 ...data,
             });
             alert("We have Stored your Detail. Will Contact you ASAP")
-            setdata({})
         } catch (error) {
             alert(error.code)
         }
