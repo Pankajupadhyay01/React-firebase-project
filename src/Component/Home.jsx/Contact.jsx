@@ -21,8 +21,8 @@ const Contact = () => {
                 ...data,
             });
             alert("We have Stored your Detail. Will Contact you ASAP")
-        } catch (error) {
-            alert(error.code)
+        } catch (error) { 
+            alert("Ooops Some error occur please try again ")
         }
     }
 
