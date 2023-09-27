@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Heading from '../Cards/Heading'
-import { contact} from '../../data/contact'
+import { contact } from '../../data/contact'
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { app } from '../../firebase';
 import { db } from '../../firebase';
@@ -9,35 +9,6 @@ import { db } from '../../firebase';
 
 const firestore = getFirestore()
 const Contact = () => {
-    const[Email,setEmail]=useState("");
-    const[Name,setName]=useState("");
-    const[Message,setMessage]=useState("");
-    const handleSubmit=async(e)=>
-    {
-        e.preventDefault();
-        try{
-            await
-            db.collection("Contacts").add({
-                Email,
-                Name,
-                Message,
-
-            });
-            setEmail("");
-            setName("");
-            setMessage("");
-            console.log("data sussussfully stored in firestore....");
-
-}
-catch(error){
-console.error("error stored in data:",error);
-
-}
-
-};
-
-
-
     const [data, setdata] = useState({})
 
     const dataListner = (e) => {
@@ -45,7 +16,7 @@ console.error("error stored in data:",error);
         const val = e.target.value;
         setdata({ ...data, [id]: val })
     }
- 
+
     const writeData = async (e) => {
         e.preventDefault();
         try {
