@@ -1,12 +1,13 @@
 import React from 'react'
-import { BrowserRouter, Link, Routes, Route, Navigate, } from "react-router-dom";
+import { BrowserRouter, Link, Routes, Route, Navigate } from "react-router-dom";
 import Login from './Pages/Login';
 import Home from './Pages/Home';
 import Navbar from './Component/Navbar';
 import Resume from './Pages/Resume';
 import { useSelector } from 'react-redux';
 import Hire from './Pages/Hire';
-import Join_Seller from './Pages/Join_Seller'; 
+import Join_Seller from './Pages/Join_Seller';
+import Secondary_Nav from './Component/Opportunity/Secondary_Nav';
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter >
-        <Navbar /> 
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -27,7 +28,6 @@ const App = () => {
           <Route path="/hire" element={<RequiredAuth> <Hire /> </RequiredAuth>} />
           <Route path="/hire/become-a-seller" element={<RequiredAuth> <Join_Seller /> </RequiredAuth>} />
         </Routes>
-
       </BrowserRouter >
     </>
   )

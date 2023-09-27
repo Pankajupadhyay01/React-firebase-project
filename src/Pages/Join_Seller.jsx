@@ -32,7 +32,7 @@ const Join_Seller = () => {
     }
 
     return (
-        <div className='pt-[50px] w-[90%] flex m-auto justify-around items-center h-[100vh]'>
+        <div className='pt-[50px] w-[90%] flex m-auto justify-around items-center h-[80vh] align-middle shadow-2xl'>
 
 
             <div className='w-[50%] flex flex-col gap-4 justify-center items-center'>

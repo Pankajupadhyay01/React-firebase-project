@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from '../Cards/Heading'
 import { contact } from '../../data/contact'
 import { getFirestore, collection, addDoc } from "firebase/firestore";
@@ -8,15 +8,25 @@ import { app } from '../../firebase';
 const firestore = getFirestore()
 const Contact = () => {
 
+    const [data, setdata] = useState({})
 
+    const dataListner = (e) => {
+        const id = e.target.id;
+        const val = e.target.value;
+        setdata({ ...data, [id]: val })
+    }
+ 
     const writeData = async (e) => {
         e.preventDefault();
-        const result = await addDoc(collection(firestore, "contacts"), {
-            Email: "pankaj",
-            Name: "uii",
-            message: "Delhi"
-        });
-        console.log("Result", result);
+        try {
+            const result = await addDoc(collection(firestore, "contacts"), {
+                ...data,
+            });
+            alert("We have Stored your Detail. Will Contact you ASAP")
+            setdata({})
+        } catch (error) {
+            alert(error.code)
+        }
     }
 
     return (
@@ -37,9 +47,9 @@ const Contact = () => {
 
                 <div className='flex md:flex-col gap-3 flex-1 justify-center items-center'>
                     <form action="" className='flex flex-col gap-4  justify-center items-center'>
-                        <input type="name" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Name' />
-                        <input type="email" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Email' />
-                        <textarea rows={5} type="text" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Message..' />
+                        <input type="name" onChange={dataListner} id='name' className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Name' />
+                        <input type="email" onChange={dataListner} id='email' className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Email' />
+                        <textarea rows={5} onChange={dataListner} id='message' type="text" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Message..' />
                         <button onClick={writeData} className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Submit</button>
                     </form>
                 </div>
