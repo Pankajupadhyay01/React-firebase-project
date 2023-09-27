@@ -3,21 +3,14 @@ import Heading from '../Cards/Heading'
 import { contact } from '../../data/contact'
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { app } from '../../firebase';
-import React,{useState} from 'react';
+
 
 
 
 
 const firestore = getFirestore()
 const Contact = () => {
-    const [userData , setUserData] = useState({
-         Name:"",
-         Email:"",
-         Message:"",
-        
-
-         })
-
+    
 
     const writeData = async (e) => {
         e.preventDefault();
