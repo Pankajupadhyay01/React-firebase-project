@@ -1,24 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from '../Cards/Heading'
 import { contact } from '../../data/contact'
-import { getFirestore } from "firebase/firestore";
-//import { app } from '../../firebase';
-import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { app } from '../../firebase';
 
 
-//const firestore = getFirestore()
+const firestore = getFirestore()
 const Contact = () => {
+    const [data, setdata] = useState({})
 
+    const dataListner = (e) => {
+        const id = e.target.id;
+        const val = e.target.value;
+        setdata({ ...data, [id]: val })
+    }
 
     const writeData = async (e) => {
         e.preventDefault();
-        await setDoc(doc(db, "cities", "LA"), {
-            name: "Los Angeles",
-            state: "CA",
-            country: "USA"
-          });
-          
+        const result = await addDoc(collection(firestore, "Users"), {
+            Name: "Niyati",
+            Phone: 9876580680,
+            City: "Delhi"
+        });
+        console.log("Result", result);
     }
 
     return (
@@ -38,7 +42,7 @@ const Contact = () => {
                 </div>
 
                 <div className='flex md:flex-col gap-3 flex-1 justify-center items-center'>
-                    <form  action="" className='flex flex-col gap-4  justify-center items-center'>
+                    <form action="" className='flex flex-col gap-4  justify-center items-center'>
                         <input type="name" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Name' />
                         <input type="email" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Email' />
                         <textarea rows={5} type="text" className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Message..' />
