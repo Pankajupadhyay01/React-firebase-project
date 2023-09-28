@@ -14,20 +14,57 @@ const Resume_form = () => {
         },
 
     ]
+
+    const heading = [
+        {
+            title: "Basic Information"
+        },
+        {
+            title: "Education"
+        },
+        {
+            title: "Add SkillS"
+        },
+        {
+            title: "Personal Project"
+        },
+        {
+            title: "WORK EXPERIENCE"
+        },
+        {
+            title: "Achievement"
+        },
+        {
+            title: "Languages"
+        },
+        {
+            title: "Social Link"
+        },
+
+
+    ]
     return (
         <div>
-            <form action="" className='flex w-[]'>
-                {
-                    form.map((pro, i) => (
-                        <input key={i} type="text" placeholder={pro.name} />
-                    ))
-                }
-                <button>save</button>
-            </form>
+            {
+                heading.map((pro, i) => (
+                    <div>
+                        {pro.title}
+                        <form action="" className='flex w-[]'>
+                            {
+                                form.map((pro, i) => (
+                                    <input key={i} type="text" placeholder={pro.name} />
+                                ))
+                            }
+                        </form>
+                    </div>
+
+                ))
+            }
+            < button > save</button>
 
             {/* Template */}
             <Resume_template />
-        </div>
+        </div >
     )
 }
 

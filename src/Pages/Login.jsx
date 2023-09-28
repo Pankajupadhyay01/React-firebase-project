@@ -62,8 +62,6 @@ const Login = () => {
         alert("Hey Programmer... Your Accoun created sucessfully")
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         seterr(error.code)
       });
   }
@@ -81,8 +79,6 @@ const Login = () => {
         navigate("/")
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         seterr(error.code)
       });
   }

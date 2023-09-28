@@ -22,6 +22,7 @@ const Contact = () => {
             });
             alert("We have Stored your Detail. Will Contact you ASAP")
         } catch (error) { 
+            console.log(error);
             alert("Ooops Some error occur please try again ")
         }
     }

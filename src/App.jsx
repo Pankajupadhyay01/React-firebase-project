@@ -11,9 +11,6 @@ import Secondary_Nav from './Component/Opportunity/Secondary_Nav';
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
-  
-
-
 
   const RequiredAuth = ({ children }) => {
     return user ? children : <Navigate to="/login" />
@@ -26,8 +23,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/resume" element={<RequiredAuth> <Resume /> </RequiredAuth>} />
-          <Route path="/hire" element={<RequiredAuth> <Hire /> </RequiredAuth>} />
-          <Route path="/hire/become-a-seller" element={<RequiredAuth> <Join_Seller /> </RequiredAuth>} />
+          <Route path="/hire" element={<RequiredAuth> <Secondary_Nav /> </RequiredAuth>} >
+            <Route index element={<RequiredAuth> <Hire /> </RequiredAuth>} />
+            <Route path="become-a-seller" element={<RequiredAuth> <Join_Seller /> </RequiredAuth>} />
+          </Route>
         </Routes>
       </BrowserRouter >
     </>

@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import { input } from '../data/Sellers_input'
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, db } from '../firebase'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-
-
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Join_Seller = () => {
     const [seller, setseller] = useState({})
@@ -33,7 +31,6 @@ const Join_Seller = () => {
 
     return (
         <div className='pt-[50px] w-[90%] flex m-auto justify-around items-center h-[80vh] align-middle shadow-2xl'>
-
 
             <div className='w-[50%] flex flex-col gap-4 justify-center items-center'>
                 <label >Please select you image</label>
