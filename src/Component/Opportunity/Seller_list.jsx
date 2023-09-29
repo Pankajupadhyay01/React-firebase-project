@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import Alnum_card from '../Cards/Alnum_card'
 import { collection, getDocs } from "firebase/firestore";
-import { db } from '../../firebase' 
-import { CircleLoader } from 'react-spinners';
+import { db } from '../../firebase'
+import Ringload from '../Loaders/Ringload';
+import Seller_list_card from '../Cards/Seller_list_card';
+import { Link } from 'react-router-dom';
 
 const Seller_list = () => {
     const [list, setlist] = useState([])
@@ -13,7 +15,9 @@ const Seller_list = () => {
             try {
                 const querySnapshot = await getDocs(collection(db, "seller"));
                 querySnapshot.forEach((doc) => {
-                    seller.push(doc.data())
+                    const id = doc.id
+                    seller = [...seller, { id, ...doc.data() }]
+                    // seller.push({...doc.id, doc.data()})
                 });
                 setlist(seller)
                 setloading(false)
@@ -24,18 +28,19 @@ const Seller_list = () => {
 
         fetchSeller()
     }, [])
-
     return (
         <>
             {
-                loading ? <CircleLoader /> :
+                loading ? <Ringload /> :
                     <div className='flex flex-wrap'>
                         {
                             list.map((pro, i) => (
-                                <Alnum_card title={pro.name} />
+                                <Link to={"/hire/" + pro.id} className='flex w-[calc(50%-10px)] md:w-[calc(25%-10px)] justify-center items-start '>
+                                    <Seller_list_card key={i} {...pro} />
+                                </Link>
                             ))
-                        }
 
+                        }
                     </div>
             }
         </>

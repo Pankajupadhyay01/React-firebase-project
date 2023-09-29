@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import Hire from './Pages/Hire';
 import Join_Seller from './Pages/Join_Seller';
 import Secondary_Nav from './Component/Opportunity/Secondary_Nav';
+import SellerDetail from './Component/Opportunity/SellerDetail';
 
 const App = () => {
   const user = useSelector((state) => state.user.user);
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/resume" element={<RequiredAuth> <Resume /> </RequiredAuth>} />
           <Route path="/hire" element={<RequiredAuth> <Secondary_Nav /> </RequiredAuth>} >
             <Route index element={<RequiredAuth> <Hire /> </RequiredAuth>} />
+            <Route path='/hire/:data' element={<RequiredAuth> <SellerDetail /> </RequiredAuth>} />
             <Route path="become-a-seller" element={<RequiredAuth> <Join_Seller /> </RequiredAuth>} />
           </Route>
         </Routes>

@@ -1,12 +1,12 @@
 import React from 'react'
 import RingLoader from "react-spinners/RingLoader";
 
-const CircleLoader = () => {
+const Ringload = () => {
     return (
-        <div className='flex justify-center items-center w-full h-[100vh] flex-col '>
+        <div className='flex justify-center items-center w-full flex-col '>
             <RingLoader
-                color="#3cd7b8"
-                size={30}
+                color="black"
+                size={50}
                 aria-label="Loading Spinner"
                 data-testid="loader"
             />
@@ -15,4 +15,4 @@ const CircleLoader = () => {
     )
 }
 
-export default CircleLoader
+export default Ringload
