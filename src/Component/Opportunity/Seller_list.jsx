@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import Alnum_card from '../Cards/Alnum_card'
+import { useEffect, useState } from 'react' 
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../firebase'
 import Ringload from '../Loaders/Ringload';
@@ -17,7 +16,6 @@ const Seller_list = () => {
                 querySnapshot.forEach((doc) => {
                     const id = doc.id
                     seller = [...seller, { id, ...doc.data() }]
-                    // seller.push({...doc.id, doc.data()})
                 });
                 setlist(seller)
                 setloading(false)
