@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Resume_template from './Resume_template'
-import resume from '../../data/resume'
-import { Basic } from '../../data/resume'
+import resume, { Basic, Education, Skills, Languages, Experience, Project } from '../../data/resume'
 const Resume_form = () => {
     const [heading, setheading] = useState("Basic")
     const [data, setdata] = useState([])
@@ -12,6 +11,21 @@ const Resume_form = () => {
                 setdata(Basic)
                 break;
 
+            case "Education":
+                setdata(Education)
+                break;
+            case "Skills":
+                setdata(Skills)
+                break;
+            case "Project":
+                setdata(Project)
+                break;
+            case "Experience":
+                setdata(Experience)
+                break;
+            case "Languages":
+                setdata(Languages)
+                break;
             default:
                 setdata(Basic)
                 break;
@@ -31,12 +45,17 @@ const Resume_form = () => {
                 }
             </div>
 
-            <div className='w-[90%] flex flex-col justify-center h-[100vh] '>
-                {
-                    data.map((pro, i) => (
-                        <input key={i} type={pro.type} />
-                    ))
-                }
+            <div className='w-[90%] flex flex-col justify-center m-auto'>
+                <div className='flex flex-wrap gap-2 w-full justify-center m-[10px]'>
+
+                    {
+                        data.map((pro, i) => (
+                            <div key={i} className='flex flex-col w-[30%] my-[10px] p-[10px]'>
+                                <input key={i} type={pro.type} placeholder={pro.placeholder} className=' border-2 border-black text-center p-[8px] rounded outline-none' />
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
             {/* Template */}
             <Resume_template />
