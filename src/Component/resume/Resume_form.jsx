@@ -1,67 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Resume_template from './Resume_template'
-
+import resume from '../../data/resume'
+import { Basic } from '../../data/resume'
 const Resume_form = () => {
-    const form = [
-        {
-            name: "one"
-        },
-        {
-            name: "one"
-        },
-        {
-            name: "one"
-        },
+    const [heading, setheading] = useState("Basic")
+    const [data, setdata] = useState([])
 
-    ]
+    useEffect(() => {
+        switch (heading) {
+            case "Basic":
+                setdata(Basic)
+                break;
 
-    const heading = [
-        {
-            title: "Basic Information"
-        },
-        {
-            title: "Education"
-        },
-        {
-            title: "Add SkillS"
-        },
-        {
-            title: "Personal Project"
-        },
-        {
-            title: "WORK EXPERIENCE"
-        },
-        {
-            title: "Achievement"
-        },
-        {
-            title: "Languages"
-        },
-        {
-            title: "Social Link"
-        },
+            default:
+                setdata(Basic)
+                break;
+        }
+    }, [heading])
 
 
-    ]
     return (
         <div>
-            {
-                heading.map((pro, i) => (
-                    <div>
-                        {pro.title}
-                        <form action="" className='flex w-[]'>
-                            {
-                                form.map((pro, i) => (
-                                    <input key={i} type="text" placeholder={pro.name} />
-                                ))
-                            }
-                        </form>
-                    </div>
+            <div className='flex justify-between m-[10px]'>
+                {
+                    resume.map((pro, i) => (
+                        <li key={i} className=' list-none bg-blue-900 hover:text-mustard p-[10px] rounded text-white cursor-pointer' onClick={() => setheading(pro.id)}>
+                            {pro.title}
+                        </li>
+                    ))
+                }
+            </div>
 
-                ))
-            }
-            < button > save</button>
-
+            <div className='w-[90%] flex flex-col justify-center h-[100vh] '>
+                {
+                    data.map((pro, i) => (
+                        <input key={i} type={pro.type} />
+                    ))
+                }
+            </div>
             {/* Template */}
             <Resume_template />
         </div >

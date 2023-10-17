@@ -20,8 +20,6 @@ const SellerDetail = () => {
         fetchData()
     }, [])
 
-    console.log(detail);
-
     return (
         <>
             <div className="w-[90%] py-10 flex flex-col justify-center items-center gap-2 m-auto">

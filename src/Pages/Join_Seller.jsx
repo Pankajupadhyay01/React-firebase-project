@@ -12,7 +12,7 @@ const Join_Seller = () => {
         const id = e.target.id;
         const val = e.target.value;
         setseller({ ...seller, [id]: val })
-    }
+    } 
 
     // Sending data to firestore
     const handle = async (e) => {
