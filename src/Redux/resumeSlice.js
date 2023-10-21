@@ -1,19 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { initial } from '../data/resume'
 
 const resumeSlice = createSlice({
     name: 'counter',
     initialState: {
-        value: 8
+        final: {}
     },
     reducers: {
-        incremented: state => {
-            state.value += 1
+        validate: (state, action) => {
+            console.log(action.payload);
+            state.final = action.payload.formik
         },
-        decremented: state => {
-            state.value -= 1
-        }
+
     }
 })
 
-export const { incremented, decremented } = resumeSlice.actions
+export const { validate } = resumeSlice.actions
 export default resumeSlice.reducer
