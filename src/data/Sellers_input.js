@@ -48,3 +48,12 @@ export const input = [
     // placeholder: "Enter your skill ",
     // },
 ]
+
+export const project = [
+    {
+        id: 1,
+        label: "Project",
+        type: "text",
+        placeholder: "List your project  ",
+    },
+] 

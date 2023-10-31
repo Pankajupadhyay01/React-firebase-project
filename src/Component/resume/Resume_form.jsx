@@ -2,16 +2,20 @@ import React, { useEffect, useState } from 'react'
 import Resume_template from './Resume_template'
 import { Formik, useFormik } from 'formik';
 import { headder, initial } from '../../data/resume'
-// import { basic, education, experience, languages, project, skills } from './Inputform';
+import { useDispatch } from 'react-redux';
+import { validate } from '../../Redux/resumeSlice';
 const Resume_form = () => {
 
     // functions 
+    const dispatch = useDispatch()
     const formik = useFormik({
         initialValues: initial,
         onSubmit: values => {
-            console.log(values);
+
         },
-    });
+    })
+    dispatch(validate(formik.values))
+    // console.log(values)
 
     const basic = (
         <>
@@ -88,10 +92,12 @@ const Resume_form = () => {
     const project = (
         <>
             <div className='flex flex-col w-[30%] my-[10px] p-[10px] '>
-                <input className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
+                <input name="Project" onChange={formik.handleChange} value={formik.values.Project} placeholder="List your Project"
+                    className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
             </div>
             <div className='flex flex-col w-[30%] my-[10px] p-[10px] '>
-                <input className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
+                <input name="project_desc" onChange={formik.handleChange} value={formik.values.project_desc} placeholder="Describe Project"
+                    className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
             </div>
         </>
     )
@@ -99,18 +105,25 @@ const Resume_form = () => {
     const experience = (
         <>
             <div className='flex flex-col w-[30%] my-[10px] p-[10px] '>
-                <input className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
+                <input name="position" onChange={formik.handleChange} value={formik.values.position} placeholder="Enter your position "
+                    className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
             </div>
             <div className='flex flex-col w-[30%] my-[10px] p-[10px] '>
-                <input className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
+                <input name="company" onChange={formik.handleChange} value={formik.values.company} placeholder="Enter your company name"
+                    className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
             </div>
             <div className='flex flex-col w-[30%] my-[10px] p-[10px] '>
-                <input className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
+                <input name="dos" onChange={formik.handleChange} value={formik.values.dos} placeholder="Enter Joining date"
+                    className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
             </div>
             <div className='flex flex-col w-[30%] my-[10px] p-[10px] '>
-                <input className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
+                <input name="doe" onChange={formik.handleChange} value={formik.values.doe} placeholder="Enter completion date"
+                    className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
             </div>
-
+            <div className='flex flex-col w-[30%] my-[10px] p-[10px] '>
+                <input name="location" onChange={formik.handleChange} value={formik.values.location} placeholder="Enter work Location "
+                    className=' border-2 border-black text-center p-[8px] rounded outline-none' type="text" />
+            </div>
         </>
     )
 
@@ -163,20 +176,9 @@ const Resume_form = () => {
             </div>
 
             <div className='w-[90%] flex flex-col justify-center m-auto'>
-                {/* <form onSubmit={formik.handleSubmit} className='flex flex-wrap gap-2 w-full justify-center m-[10px]'> */}
-
-                {/* {
-                        data.map((pro, i) => (
-                            <div key={i} >
-                                <input key={i} id={pro.id} name={pro.id} onChange={formik.handleChange} type={pro.type} placeholder={pro.placeholder} className=' border-2 border-black text-center p-[8px] rounded outline-none' />
-                            </div>
-                        ))
-                    } */}
-                <form onSubmit={formik.handleSubmit} className='flex flex-wrap w-full justify-center items-center '>
+                <form className='flex flex-wrap w-full justify-center items-center '>
                     {inputfunc()}
-                    <button type='submit'>submit</button>
                 </form>
-
             </div>
             {/* Template */}
             <Resume_template />

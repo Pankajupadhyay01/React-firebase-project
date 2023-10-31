@@ -5,15 +5,32 @@ import { auth, db } from '../firebase'
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Join_Seller = () => {
+    const [project, setproject] = useState([
+        {
+            id: 1,
+            label: "Project",
+            type: "text",
+            placeholder: "Link of project  ",
+        }
+    ])
     const [seller, setseller] = useState({})
-
+    const [projectid, setprojectid] = useState(2)
     // Collecting data from input field
     const sellerData = (e) => {
         const id = e.target.id;
         const val = e.target.value;
         setseller({ ...seller, [id]: val })
-    } 
- 
+    }
+
+
+    const addProject = () => {
+        let newfield = { id: projectid + 1, label: "Project", type: "text", placeholder: "List your project  " }
+        setproject([...project, newfield])
+    }
+
+    console.log(seller);
+    // console.log(project);
+
     // Sending data to firestore
     const handle = async (e) => {
         e.preventDefault();
@@ -35,7 +52,14 @@ const Join_Seller = () => {
             <div className='w-[50%] flex flex-col gap-4 justify-center items-center'>
                 <label >Please select you image</label>
                 <input type="file" />
-
+                {
+                    project.map((pro, i) => (
+                        <div key={i} className='flex flex-col w-[40%] my-[10px] '>
+                            <input id={pro.id + 1} type={pro.type} placeholder={pro.placeholder} onChange={sellerData} className='w-full py-2 outline-none text-center border-b-2 border-b-black' />
+                        </div>
+                    ))
+                }
+                <div className=' cursor-pointer' onClick={addProject}>Add </div>
             </div>
             <div className='flex flex-col w-[50%] justify-center items-center gap-6 '>
                 <div className='flex flex-wrap gap-6 w-full justify-center'>
@@ -48,11 +72,12 @@ const Join_Seller = () => {
                             </div>
                         ))
                     }
+
                 </div>
                 <button onClick={handle} className='w-[30%] bg-main  text-white font-medium p-[10px_20px] rounded-xl cursor-pointer'>Submit</button>
 
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -1,15 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { initial } from '../data/resume'
 
 const resumeSlice = createSlice({
-    name: 'counter',
+    name: 'data',
     initialState: {
-        final: {}
+        data: [],
     },
     reducers: {
         validate: (state, action) => {
-            console.log(action.payload);
-            state.final = action.payload.formik
+            state.data = action.payload 
+            console.log(action.payload) ;
         },
 
     }
