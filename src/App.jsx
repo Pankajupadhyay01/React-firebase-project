@@ -30,8 +30,7 @@ const App = () => {
     const fetchData = async () => {
       if (user) {
         const docRef = doc(db, "seller", uid);
-        const docSnap = await getDoc(docRef); 
-        console.log(docSnap.data());
+        const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           dispatch(checkUser(docSnap.data()))
         } else {
@@ -51,7 +50,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<RequiredAuth><Dashboard /></RequiredAuth>} />
           <Route path="/resume" element={<RequiredAuth> <Resume /> </RequiredAuth>} />
           <Route path="/question" element={<RequiredAuth> <Questions /> </RequiredAuth>} />
           <Route path="/answer/:id" element={<RequiredAuth> <Answer /> </RequiredAuth>} />

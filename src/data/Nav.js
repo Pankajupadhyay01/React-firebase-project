@@ -4,6 +4,10 @@ export const Desktopnav = [
         Link: "/"
     },
     {
+        name: "Profile",
+        Link: "/profile"
+    },
+    {
         name: "Dashboard",
         Link: "/dashboard"
     },
@@ -11,10 +15,7 @@ export const Desktopnav = [
         name: "Ask Query",
         Link: "/question"
     },
-    {
-        name: "Profile",
-        Link: "/profile"
-    },
+
 ]
 
 // mobile View navbar Data
@@ -25,11 +26,11 @@ export const Mobilenav = [
     },
     {
         name: "help-circle-outline",
-        Link: "/"
+        Link: "//question"
     },
     {
         name: "call-outline",
-        Link: ""
+        Link: "/profile"
     },
 ]
 
