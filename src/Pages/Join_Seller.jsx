@@ -5,6 +5,7 @@ import { auth, db } from '../firebase'
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Join_Seller = () => {
+
     const [project, setproject] = useState([
         {
             id: 1,
@@ -14,22 +15,20 @@ const Join_Seller = () => {
         }
     ])
     const [seller, setseller] = useState({})
-    const [projectid, setprojectid] = useState(2)
+
     // Collecting data from input field
     const sellerData = (e) => {
         const id = e.target.id;
         const val = e.target.value;
+
         setseller({ ...seller, [id]: val })
     }
 
-
     const addProject = () => {
-        let newfield = { id: projectid + 1, label: "Project", type: "text", placeholder: "List your project  " }
+        let newfield = { id: 1, label: "Project", type: "text", placeholder: "List your project  " }
         setproject([...project, newfield])
     }
 
-    console.log(seller);
-    // console.log(project);
 
     // Sending data to firestore
     const handle = async (e) => {
@@ -39,6 +38,7 @@ const Join_Seller = () => {
             await setDoc(doc(db, "seller", res.user.uid), {
                 ...seller,
             });
+            // await setDoc(doc(db, "seller", res.user.uid), { about: "nonoonono", email: "okokk" });
             alert("Hey user You are sucessfully Become a Seller . if you want to change any detail further you can change here itself.")
         } catch (error) {
             alert("Please Enter you Email Password using which you login.")

@@ -18,11 +18,13 @@ const Contact = () => {
     const writeData = async (e) => {
         e.preventDefault();
         try {
+            console.log(data);
             const result = await addDoc(collection(firestore, "contacts"), {
                 ...data,
             });
+            const resul = await 
             alert("We have Stored your Detail. Will Contact you ASAP")
-        } catch (error) { 
+        } catch (error) {
             console.log(error);
             alert("Ooops Some error occur please try again ")
         }
@@ -36,7 +38,7 @@ const Contact = () => {
                     {
                         contact.map((pro, i) => (
                             <div key={i} className='flex flex-col items-center'>
-                                <div className=''>icon</div>
+                                <ion-icon name={pro.image}></ion-icon>
                                 <div className='text-[24px] font-semibold text-blue-950'>{pro.name}</div>
                                 <div className='text-pink-900'>{pro.detail}</div>
                             </div>
@@ -45,11 +47,11 @@ const Contact = () => {
                 </div>
 
                 <div className='flex md:flex-col gap-3 flex-1 justify-center items-center'>
-                    <form action="" className='flex flex-col gap-4  justify-center items-center'>
-                        <input type="name" onChange={dataListner} className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Name' />
-                        <input type="email" onChange={dataListner} className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Email' />
-                        <textarea rows={5} type="text" onChange={dataListner} className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Message..' />
-                        <button onClick={writeData} className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Submit</button>
+                    <form onSubmit={writeData} action="" className='flex flex-col gap-4  justify-center items-center'>
+                        <input type="name" id='name' onChange={dataListner} className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Name' />
+                        <input type="email" id='email' onChange={dataListner} className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Email' />
+                        <textarea rows={5} id='message' type="text" onChange={dataListner} className=' bg-transparent border-2 border-black p-[5px_10px] text-center outline-none text-black w-[280px] sm:w-[350px] rounded-lg ' placeholder='Enter Your Message..' />
+                        <button type='submit' className=' bg-main flex justify-center p-[10px_40px] rounded-[50px] text-white'>Submit</button>
                     </form>
                 </div>
             </div>

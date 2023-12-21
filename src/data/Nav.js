@@ -9,7 +9,7 @@ export const Desktopnav = [
     },
     {
         name: "Ask Query",
-        Link: "/"
+        Link: "/question"
     },
     {
         name: "Contact Us ",
@@ -44,7 +44,7 @@ export const Herodata = [
     {
         image: "help-outline",
         name: " Ask Question",
-        Link: "/"
+        Link: "/question"
     },
     {
         image: "chatbubble-ellipses-outline",

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Logimg from '/assets/login.png'
 import FormsLoader from '../Component/Loaders/FormsLoader';
-
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase';
-
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { checkUser } from '../Redux/userSlice';
-
-
+import { checkUser, userid } from '../Redux/userSlice';
 
 const Login = () => {
 
@@ -59,7 +55,7 @@ const Login = () => {
       .then((userCredential) => {
         seterr("")
         const user = userCredential.user;
-        alert("Hey Programmer... Your Accoun created sucessfully")
+        alert("Hey Your Accoun created sucessfully")
       })
       .catch((error) => {
         seterr(error.code)
@@ -72,10 +68,12 @@ const Login = () => {
     e.preventDefault()
 
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         seterr("")
         const user = userCredential.user;
+        const id = await user.uid
         dispatch(checkUser())
+        dispatch(userid(id))
         navigate("/")
       })
       .catch((error) => {
