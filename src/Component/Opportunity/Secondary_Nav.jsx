@@ -14,10 +14,6 @@ const Secondary_Nav = () => {
         {
             title: "Find a Seller ",
             Link: "/hire"
-        },
-        {
-            title: "Become a Seller ",
-            Link: "/hire/become-a-seller "
         }
     ]
     return (

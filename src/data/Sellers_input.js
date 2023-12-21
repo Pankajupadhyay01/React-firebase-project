@@ -1,11 +1,5 @@
 export const input = [
     {
-        id: "username",
-        // label: "Username",
-        type: "text",
-        placeholder: " User name ",
-    },
-    {
         id: "name",
         // label: "Name",
         type: "text",
@@ -41,12 +35,6 @@ export const input = [
         type: "text",
         placeholder: "Enter you education ",
     }
-    // {
-    // id: "expreince",
-    // label: "Expreince",
-    // type: "text",
-    // placeholder: "Enter your skill ",
-    // },
 ]
 
 export const project = [

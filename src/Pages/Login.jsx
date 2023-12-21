@@ -70,8 +70,9 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         seterr("")
-        const user = userCredential.user;
+        const user = await userCredential.user;
         const id = await user.uid
+        const email = await user.email
         dispatch(checkUser())
         dispatch(userid(id))
         navigate("/")

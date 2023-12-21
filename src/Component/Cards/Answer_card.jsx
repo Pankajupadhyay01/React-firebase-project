@@ -57,7 +57,7 @@ const Answer_card = ({ pro }) => {
     return (
         <div className='flex flex-col gap-4 bg-blue-500 bg-opacity-50 p-[10px_10px] text-black rounded-lg'>
             <div className='flex mx-[20px] items-center text-lg'>
-                {pro.question} ?
+              Que:-  {pro.question} ?
             </div>
             <div className='flex w-full flex-col gap-y-2 justify-center items-center'>
                 <form onSubmit={handle_submit}>
@@ -82,7 +82,20 @@ const Answer_card = ({ pro }) => {
                 <div className='flex w-full flex-col gap-y-2 justify-center items-center'>
                     {
                         allans.map((item, i) => (
-                            <li>{item.answer}</li>
+                            <div className='flex flex-col gap-y-3  w-full bg-white p-[10px] rounded'>
+
+                                <div className='flex gap-x-4 text-black items-center '>
+                                    <div className=' flex justify-center items-center text-white text-[25px] bg-black h-[50px] w-[50px] rounded-full'>
+                                        <ion-icon name="people-outline"></ion-icon>
+                                    </div>
+                                    <div>
+                                        {item.user_id}
+                                    </div>
+                                </div>
+                                <div className='flex gap-x-5 mx-10'>
+                                    {item.answer}
+                                </div>
+                            </div>
                         ))
                     }
                 </div>

@@ -4,16 +4,16 @@ export const Desktopnav = [
         Link: "/"
     },
     {
-        name: "About",
-        Link: "/"
+        name: "Dashboard",
+        Link: "/dashboard"
     },
     {
         name: "Ask Query",
         Link: "/question"
     },
     {
-        name: "Contact Us ",
-        Link: ""
+        name: "Profile",
+        Link: "/profile"
     },
 ]
 
@@ -49,7 +49,7 @@ export const Herodata = [
     {
         image: "chatbubble-ellipses-outline",
         name: "Solve Question",
-        Link: "/"
+        Link: "/question"
     },
     {
         image: "telescope-outline",

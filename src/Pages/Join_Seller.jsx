@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { input } from '../data/Sellers_input'
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from '../firebase'
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch } from 'react-redux';
+import { checkUser } from '../Redux/userSlice';
 
 const Join_Seller = () => {
+
+    const dispatch = useDispatch()
 
     const [project, setproject] = useState([
         {
@@ -14,13 +18,13 @@ const Join_Seller = () => {
             placeholder: "Link of project  ",
         }
     ])
+
     const [seller, setseller] = useState({})
 
     // Collecting data from input field
     const sellerData = (e) => {
         const id = e.target.id;
         const val = e.target.value;
-
         setseller({ ...seller, [id]: val })
     }
 
@@ -38,13 +42,15 @@ const Join_Seller = () => {
             await setDoc(doc(db, "seller", res.user.uid), {
                 ...seller,
             });
-            // await setDoc(doc(db, "seller", res.user.uid), { about: "nonoonono", email: "okokk" });
+            dispatch(checkUser(seller))
             alert("Hey user You are sucessfully Become a Seller . if you want to change any detail further you can change here itself.")
         } catch (error) {
             alert("Please Enter you Email Password using which you login.")
         }
 
     }
+
+
 
     return (
         <div className='pt-[50px] w-[90%] flex m-auto justify-around items-center h-[80vh] align-middle shadow-2xl'>
