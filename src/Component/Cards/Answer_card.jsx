@@ -7,6 +7,8 @@ import { db } from '../../firebase';
 const Answer_card = ({ pro }) => {
 
     const user_id = useSelector((state) => state.user.id);
+    const user_name = useSelector((state) => state.user.user_data.name)
+
     const id = pro.id
 
     const [ans, setans] = useState("")
@@ -25,6 +27,7 @@ const Answer_card = ({ pro }) => {
                     que_id: id,
                     answer: ans,
                     user_id: user_id,
+                    user_name: user_name,
                 })
             })
             alert("Hey  You'r Answer posted sucessfully.")
@@ -35,7 +38,7 @@ const Answer_card = ({ pro }) => {
         }
     }
 
-    // finding all answer  using id
+    // finding all answer using id
     useEffect(() => {
 
         try {
@@ -57,7 +60,7 @@ const Answer_card = ({ pro }) => {
     return (
         <div className='flex flex-col gap-4 bg-blue-500 bg-opacity-50 p-[10px_10px] text-black rounded-lg'>
             <div className='flex mx-[20px] items-center text-lg'>
-              Que:-  {pro.question} ?
+                Que:-  {pro.question} ?
             </div>
             <div className='flex w-full flex-col gap-y-2 justify-center items-center'>
                 <form onSubmit={handle_submit}>
@@ -89,7 +92,7 @@ const Answer_card = ({ pro }) => {
                                         <ion-icon name="people-outline"></ion-icon>
                                     </div>
                                     <div>
-                                        {item.user_id}
+                                        {item.user_name}
                                     </div>
                                 </div>
                                 <div className='flex gap-x-5 mx-10'>

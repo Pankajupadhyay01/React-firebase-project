@@ -10,7 +10,7 @@ const Question_Card = ({ ...pro }) => {
                         <ion-icon name="people-outline"></ion-icon>
                     </div>
                     <div>
-                        {pro.user_id}
+                        {pro.user_name}
                     </div>
                 </div>
                 <div className='flex ml-4 w-full'>

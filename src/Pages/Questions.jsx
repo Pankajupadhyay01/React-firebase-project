@@ -10,6 +10,7 @@ const Questions = () => {
     const uid = uuid();
 
     // user id  
+    const user_name = useSelector((state) => state.user.user_data.name)
     const user_id = useSelector((state) => state.user.id);
     const isuser = useSelector((state) => state.user.user_data);
     const [que, setques] = useState("")
@@ -31,6 +32,7 @@ const Questions = () => {
                     id: id,
                     question: que,
                     user_id: user_id,
+                    user_name: user_name,
                 })
             })
             alert("Hey  You'r question asked sucessfully.")
