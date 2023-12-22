@@ -32,6 +32,7 @@ const App = () => {
         const docRef = doc(db, "seller", uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
+          console.log(docSnap.data());
           dispatch(checkUser(docSnap.data()))
         } else {
           dispatch(checkUser())

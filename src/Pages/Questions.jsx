@@ -1,4 +1,4 @@
-import { arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, doc, getDoc, memoryLruGarbageCollector, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase'
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
@@ -9,10 +9,12 @@ const Questions = () => {
 
     const uid = uuid();
 
-    // user id  
-    const user_name = useSelector((state) => state.user.user_data.name)
+    // user id      
+
     const user_id = useSelector((state) => state.user.id);
     const isuser = useSelector((state) => state.user.user_data);
+
+    const user_name = useSelector((state) => state.user.user_data) 
     const [que, setques] = useState("")
     const [data, setdata] = useState([])
     const id = uid.slice(0, 12);
@@ -32,7 +34,7 @@ const Questions = () => {
                     id: id,
                     question: que,
                     user_id: user_id,
-                    user_name: user_name,
+                    user_name: user_name.name
                 })
             })
             alert("Hey  You'r question asked sucessfully.")

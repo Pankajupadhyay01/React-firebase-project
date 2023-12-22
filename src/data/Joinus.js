@@ -24,17 +24,17 @@ export const Joinus = [
 export const ourSponsor = [
     {
         img: "newspaper-outline",
-        title: "Get Solution ",
+        title: "XYZ",
         Link: "/"
     },
     {
         img: "people-outline",
-        title: "Get Teamate",
+        title: "XYZ Lorem",
         Link: "/"
     },
     {
         img: "logo-bitcoin",
-        title: "Get Points ",
+        title: "XYZ Lorem",
         Link: ""
     },
 ]
